@@ -162,7 +162,7 @@ app.post('/api/cif', guard((req, res) => {
 
   const db = load();
   const existing = db.cifRegistry.find(r => r.recordId === recordId);
-  if (existing) return res.json({ cif: existing.cif, created: false });
+  if (existing) return res.json({ cif: Number(existing.cif), created: false });
 
   let cif = null;
   for (let i = 0; i < 5 && !cif; i++) {
@@ -170,7 +170,7 @@ app.post('/api/cif', guard((req, res) => {
     const base = '88' + String(serial).padStart(7, '0');
     const cd = mod11(base);
     if (cd === 10) continue;
-    cif = base + cd;
+    cif = Number(base + cd);
   }
   if (!cif) return res.status(500).json({ error: 'CIF allocation failed' });
 
