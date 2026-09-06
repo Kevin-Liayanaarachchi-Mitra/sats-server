@@ -206,6 +206,13 @@ app.post('/api/aml/screen', guard((req, res) => {
     screenedAt: new Date().toISOString() });
 }));
 
+// ---------- CIF registry (list issued records) ----------
+app.get('/api/cif', guard((req, res) => {
+  const db = load();
+  res.json({ count: db.cifRegistry.length,
+             cifs: db.cifRegistry.slice().reverse() });   // newest first
+}));
+
 // ---------- watchlist management ----------
 app.get('/api/aml/watchlist', guard((req, res) => {
   res.json(load().watchlists);
