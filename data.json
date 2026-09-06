@@ -1,0 +1,10 @@
+{
+  "counters": { "cif": 1000000 },
+  "cifRegistry": [],
+  "watchlists": [
+    { "name": "Ravi Malhotra", "documentNumber": null, "listName": "PEP list", "reason": "Politically exposed person", "active": true },
+    { "name": "Nadia Sheikh",  "documentNumber": null, "listName": "UN sanctions", "reason": "Sanctions listing", "active": true },
+    { "name": null, "documentNumber": "AB1234567", "listName": "Internal blacklist", "reason": "Fraud closure 2019", "active": true }
+  ],
+  "screenings": []
+}
